@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "maggio-baileys",
+  "version": "1.0.0",
+  "description": "I thought Baileys was kind of complicated... so I created this framework to make it simple 🙂",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@adiwajshing/baileys": "^4.4.0",
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@hapi/boom": "^10.0.0",
+    "fs": "^0.0.1-security",
+    "pino": "^8.7.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

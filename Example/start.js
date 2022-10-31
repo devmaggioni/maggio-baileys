@@ -3,19 +3,19 @@ import {
   sendMessage,
   simpleMessage,
   Sock,
-  useStore,
+  //useStore,
   reconnect,
-  store,
+  //store,
 } from "../index.js"
 
-useStore();
+//useStore();
 
 const startSock = async() => {
 
   try {
 
     const sock = Sock();
-    store?.bind(sock.ev);
+    //store?.bind(sock.ev);
 
     /* ouvir eventos */
     sock.ev.process(

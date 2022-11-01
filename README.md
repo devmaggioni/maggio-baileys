@@ -11,7 +11,7 @@ import {
   simpleMessage,
   Sock,
   reconnect
-} from "maggio-baileys";
+} from "maggio-baileys"
 
 const startSock = async() => {
 
@@ -19,40 +19,42 @@ const startSock = async() => {
 
     const sock = Sock();
 
-    /* ouvir eventos */
     sock.ev.process(
 
-      if (events['connection.update']) {
-        reconnect(events, startSock)
-      };
+      async(events) => {
 
-      if (events['creds.update']) {
-        await saveCreds()
-      };
+        if (events['connection.update']) {
+          reconnect(events, startSock)
+        };
 
-      if (events['messages.upsert']) {
-        const upsert = events['messages.upsert'];
-        const message = upsert.messages[0];
+        if (events['creds.update']) {
+          await saveCreds()
+        };
 
-        //if (message.key.fromMe) return;
-        if (message.key.remoteJid === "status@broadcast") return;
+        if (events['messages.upsert']) {
+          const upsert = events['messages.upsert'];
 
-        const mek = simpleMessage(message)
-        const isGroup = mek?.head?.jid.endsWith("g.us") ? true: false;
-        const sender = isGroup ? mek?.head?.jid: mek?.head?.sender;
+          if (upsert.type !== "notify") return;
+          const message = upsert.messages[0];
+          //if (message.key.fromMe) return;
+          //if (message.key.remoteJid === "status@broadcast") return;
 
-        console.log(mek)
+          const mek = simpleMessage(message)
 
-      }
+          console.log(mek)
 
-    )
+        }
 
-  } catch(err) {
+      })
+
+    return sock;
+
+  } catch (err) {
     console.warn(err)
   }
 
 }
-startSock();
+startSock()
 ```
 
 ## Enviando mensagens:

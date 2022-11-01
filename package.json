@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "maggio-baileys",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "I thought Baileys was kind of complicated... so I created this framework to make it simple 🙂",
   "main": "index.js",
   "directories": {
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["baileys", "bot", "whatsapp bot", "wabot"],
   "author": "devmaggioni",
   "license": "ISC",
   "dependencies": {
